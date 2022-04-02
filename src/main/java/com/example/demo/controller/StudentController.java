@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
@@ -63,6 +65,12 @@ public class StudentController {
 //		tempStudent.setEmail(student.getEmail());
 		studentService.addStudent(student);
 		return "redirect:/students";
+	}
+	@GetMapping("/email")
+	@ResponseBody
+	public Student findByEmail(@RequestParam String email)
+	{
+		return studentService.findByEmail(email);
 	}
 	
 }

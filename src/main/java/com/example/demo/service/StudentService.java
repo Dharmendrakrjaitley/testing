@@ -40,4 +40,9 @@ public class StudentService {
 	{
 		studentRepository.save(student);
 	}
+	public Student findByEmail(String email)
+	{
+		return studentRepository.findByEmail(email);
+	}
+	
 }
